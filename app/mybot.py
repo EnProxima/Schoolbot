@@ -1,5 +1,5 @@
 # coding: utf-8
-from telebot import TeleBot, types
+from telebot import TeleBot
 import sqlite3 as db
 import pandas as pd
 import logging
@@ -19,7 +19,7 @@ bot = TeleBot(BOT_KEY)
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'Привет! Я буду отправлять тебе задания из электронного дневника. Если хочешь отменить подписку отправь мне команду /bye  ')
-    logging.warning(str(pd.to_datetime('today'))+' Add user to DB:'+str(message.chat.id))
+    logging.warning(str(pd.to_datetime('today'))+' Add user to DB:'+str(message.chat.id)+ '  '+ str(message.from_user))
     try:
         db_conn = db.connect(DB_PATH)
     except:
@@ -43,5 +43,12 @@ def send_text(message):
        logging.warning(str(pd.to_datetime('today'))+' Delete user from DB:'+str(message.chat.id))
        cur.execute(('delete from t_chats  where chatid="%s"' % message.chat.id ))
        db_conn.close()
+  else:
+
+     logging.warning(str(pd.to_datetime('now'))+
+                         ' '+ str(message.chat.id) +
+                         ' ' + str(message.from_user) +
+                         ' ' +str(message.text))
+
 
 bot.polling()
