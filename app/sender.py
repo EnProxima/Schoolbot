@@ -31,7 +31,7 @@ try:
  df_m_sent = pd.read_sql(con=db_conn,
                           sql='select identity from t_schooltasks\
                                      where MSG_SENT="Y" or MSG_SENT="I"')
- for index,row in df_message.iterrows():
+ for row in df_message.iterrows():
      if row[1][2]!='\n':
          if row[1][3] in tuple(df_m_sent.identity):
              msg = '<b>' + str(pd.to_datetime(row[1][0]).date()) + ' Обновление </b> \n '  # Date
