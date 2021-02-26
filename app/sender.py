@@ -6,8 +6,8 @@ import sqlite3 as db
 import time
 #config
 BOT_KEY='1624811717:AAFXjzWIiEAiMFqnkHy0NcseKZoaxRZzO5w'
-DB_PATH='./db/database.db'
-LOGFILE='./logs/sender.log'
+DB_PATH='../db/database.db'
+LOGFILE='../logs/sender.log'
 
 # end of config
 logging.basicConfig(filename=LOGFILE, filemode='a', format='%(name)s - %(levelname)s - %(message)s')
@@ -32,7 +32,7 @@ try:
                           sql='select identity from t_schooltasks\
                                      where MSG_SENT="Y" or MSG_SENT="I"')
  for row in df_message.iterrows():
-     if row[1][2]!='\n':
+     if row[1][2] not in('\n',''):
          if row[1][3] in tuple(df_m_sent.identity):
              msg = '<b>' + str(pd.to_datetime(row[1][0]).date()) + ' Обновление </b> \n '  # Date
          else:
