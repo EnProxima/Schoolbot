@@ -5,7 +5,7 @@ import logging
 import sqlite3 as db
 import time
 #config
-BOT_KEY='1624811717:AAFXjzWIiEAiMFqnkHy0NcseKZoaxRZzO5w'
+BOT_KEY=''
 DB_PATH='../db/database.db'
 LOGFILE='../logs/sender.log'
 
