@@ -7,7 +7,7 @@ import logging
 
 #configuration section
 DB_PATH='./db/database.db'
-BOT_KEY='1624811717:AAFXjzWIiEAiMFqnkHy0NcseKZoaxRZzO5w'
+BOT_KEY=''
 LOGFILE='./logs/bot.log'
 
 logging.basicConfig(filename=LOGFILE, filemode='a', format='%(name)s - %(levelname)s - %(message)s')
