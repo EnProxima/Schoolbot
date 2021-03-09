@@ -5,8 +5,8 @@ import sqlite3 as db
 
 # configuration section
 DB_PATH = './db/database.db'
-SITE_LOGIN = 'sshabinskiy@mail.ru'
-SITE_PWD = 'IcdAdmin1'
+SITE_LOGIN = 'login'
+SITE_PWD = 'password'
 
 DOWNLOAD_URL = 'https://dnevnik2.petersburgedu.ru/api/filekit/file/download?p_uuid='
 LOGFILE = './logs/collector.log'
